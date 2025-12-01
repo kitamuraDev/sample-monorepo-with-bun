@@ -6,7 +6,7 @@
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "frontend",
 	"compatibility_date": "2025-11-28",
-	"pages_build_output_dir": "./dist/browser",
+	"pages_build_output_dir": "./dist/frontend",
 	"observability": {
 		"enabled": true
 	}
