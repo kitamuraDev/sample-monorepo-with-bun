@@ -5,12 +5,8 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "frontend",
-	"main": "src/main.ts",
 	"compatibility_date": "2025-11-28",
-	"assets": {
-		"binding": "ASSETS",
-		"directory": "./dist/browser"
-	},
+	"pages_build_output_dir": "./dist/browser",
 	"observability": {
 		"enabled": true
 	}
