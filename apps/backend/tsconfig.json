@@ -12,6 +12,12 @@
     "jsxImportSource": "hono/jsx",
     "types": [
         "./worker-configuration.d.ts"
-    ]
+    ],
+    "paths": {
+      "@api-schema": ["../api/schema.d.ts"]
+    }
   },
+  "references": [
+    { "path": "../api" }
+  ]
 }

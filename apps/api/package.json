@@ -1,0 +1,11 @@
+{
+  "name": "api",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "openapi-typescript": "^7.10.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
