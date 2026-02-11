@@ -1,15 +1,15 @@
-import { Hono } from "hono";
-import { paths } from "@api-schema"
+import type { paths } from '@api-schema';
+import { Hono } from 'hono';
 
-type SuccessResponse = paths["/users/{id}"]["get"]["responses"][200]["content"]["application/json"];
+type SuccessResponse = paths['/users/{id}']['get']['responses'][200]['content']['application/json'];
 const successResponseExample: SuccessResponse = {
   id: 1,
-  name: "John Doe",
+  name: 'John Doe',
 };
 
 const app = new Hono<{ Bindings: CloudflareBindings }>();
-app.get("/message", (c) => {
-  return c.json(successResponseExample)
+app.get('/message', (c) => {
+  return c.json(successResponseExample);
 });
 
 export default app;

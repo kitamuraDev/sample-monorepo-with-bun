@@ -2,9 +2,15 @@
   "name": "sample-monorepo-with-bun",
   "private": true,
   "scripts": {
-    "dev": "bun run --filter '*' dev"
+    "dev": "bun run --filter '*' dev",
+    "lefthook_update": "lefthook uninstall && lefthook install",
+    "prepare": "lefthook install > /dev/null"
   },
   "workspaces": [
     "apps/*"
-  ]
+  ],
+  "devDependencies": {
+    "@biomejs/biome": "2.3.14",
+    "lefthook": "2.1.0"
+  }
 }

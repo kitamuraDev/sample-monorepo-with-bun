@@ -1,0 +1,11 @@
+pre-commit:
+  parallel: true
+  commands:
+    biome_check:
+      glob: "*.{html,css,js,ts,json,jsonc,yaml,yml,md}"
+      exclude:
+        - "*.d.ts" # .d.ts は自動生成されるようなファイルなので除外
+      run: bun run biome check --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {staged_files}
+      stage_fixed: true
+    unit_test:
+      run: bun run --filter '*' test
