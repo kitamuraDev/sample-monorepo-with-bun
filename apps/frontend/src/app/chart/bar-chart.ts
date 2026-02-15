@@ -1,9 +1,9 @@
-import { inject, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, type OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ActiveElement, ChartConfiguration, ChartData, ChartEvent } from 'chart.js';
+import type { ActiveElement, ChartConfiguration, ChartData, ChartEvent } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
-import { monthlyAssets, yearlyAssets } from './data'
+import { monthlyAssets, yearlyAssets } from './data';
 
 @Component({
   selector: 'app-bar-chart',
@@ -12,7 +12,7 @@ import { monthlyAssets, yearlyAssets } from './data'
     <div style="display: grid; place-content: center; height: 100svh;">
       <canvas baseChart type="bar" [data]="barChartData" [options]="barChartOptions" (chartClick)="chartClicked($event)"></canvas>
     </div>
-  `
+  `,
 })
 export default class BarChart implements OnInit {
   @ViewChild(BaseChartDirective) chart!: BaseChartDirective<'bar'>;
@@ -26,7 +26,7 @@ export default class BarChart implements OnInit {
     },
     plugins: {
       legend: { position: 'bottom' },
-    }
+    },
   };
   public barChartData: ChartData<'bar'> = {
     labels: [],
@@ -39,20 +39,18 @@ export default class BarChart implements OnInit {
 
     const labels = this.chartData.map((item) => {
       if (type === 'monthly' || type === null) {
-        return item.yearMonth.split('-')[1] + '月';
+        return `${item.yearMonth.split('-')[1]}月`;
       } else {
         return item.yearMonth.split('-')[0];
       }
     });
     const categories = [
-      ...new Set(this.chartData.flatMap((item) => item.assetsByCategory.map((asset) => asset.category)))
+      ...new Set(this.chartData.flatMap((item) => item.assetsByCategory.map((asset) => asset.category))),
     ];
 
     const datasets = categories.map((category) => {
       const data = this.chartData.map((item) => {
-        const asset = item.assetsByCategory.find(
-          (a) => a.category === category
-        );
+        const asset = item.assetsByCategory.find((a) => a.category === category);
         return asset ? asset.amount : 0;
       });
       return {
@@ -69,9 +67,9 @@ export default class BarChart implements OnInit {
   }
 
   // chart click event
-  public chartClicked({ event, active }: { event?: ChartEvent; active?: Object[]; }): void {
+  public chartClicked({ active }: { event?: ChartEvent; active?: Object[] }): void {
     const clickedChartIndex = (active as ActiveElement[])[0]?.index;
-    const selectedMonth = this.chartData[clickedChartIndex];
+    const selectedMonth = this.chartData[clickedChartIndex!];
 
     alert(JSON.stringify(selectedMonth, null, 4));
   }

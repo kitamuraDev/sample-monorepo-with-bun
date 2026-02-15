@@ -1,29 +1,31 @@
 {
   "compilerOptions": {
-    // Environment setup & latest features
+    // 言語・ランタイム
     "lib": ["ESNext"],
     "target": "ESNext",
-    "module": "Preserve",
-    "moduleDetection": "force",
-    "jsx": "react-jsx",
     "allowJs": true,
 
-    // Bundler mode
+    // モジュール解析とフォーマット
+    "module": "preserve",
+    "moduleDetection": "force",
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
     "noEmit": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "verbatimModuleSyntax": true,
+    "allowImportingTsExtensions": true,
 
-    // Best practices
+    // 型安全性とベストプラクティス
     "strict": true,
     "skipLibCheck": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedIndexedAccess": true,
+    "allowUnreachableCode": false,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
     "noImplicitOverride": true,
-
-    // Some stricter flags (disabled by default)
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "noPropertyAccessFromIndexSignature": false
+    "noUnusedParameters": true,
+    "noUncheckedIndexedAccess": true,
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "forceConsistentCasingInFileNames": true
   }
 }

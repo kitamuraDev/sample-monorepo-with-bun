@@ -1,12 +1,12 @@
-import { Routes } from '@angular/router';
+import type { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
     path: 'chart/bar',
-    loadComponent: () => import('./chart/bar-chart')
+    loadComponent: () => import('./chart/bar-chart'),
   },
   {
     path: 'chart/pie',
-    loadComponent: () => import('./chart/pie-chart')
+    loadComponent: () => import('./chart/pie-chart'),
   },
 ];

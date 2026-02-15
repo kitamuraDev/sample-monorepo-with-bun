@@ -1,13 +1,8 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "strict": true,
-    "skipLibCheck": true,
-    "lib": ["ESNext"],
-    "jsx": "react-jsx",
-    "jsxImportSource": "hono/jsx",
     "types": ["./worker-configuration.d.ts"],
 
     // apiパッケージ直下のtsファイルを@api/*でインポートできるようにするパスエイリアス

@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ChartConfiguration, ChartData } from 'chart.js';
+import { Component, type OnInit, ViewChild } from '@angular/core';
+import type { ChartConfiguration, ChartData } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
-import { monthlyAssets } from './data'
+import { monthlyAssets } from './data';
 
 @Component({
   selector: 'app-pie-chart',
@@ -11,7 +11,7 @@ import { monthlyAssets } from './data'
     <div style="display: grid; place-content: center; height: 100svh;">
       <canvas baseChart type="pie" [data]="pieChartData" [options]="pieChartOptions"></canvas>
     </div>
-  `
+  `,
 })
 export default class PieChart implements OnInit {
   @ViewChild(BaseChartDirective) chart!: BaseChartDirective<'pie'>;
@@ -19,8 +19,8 @@ export default class PieChart implements OnInit {
   public pieChartOptions: ChartConfiguration<'pie'>['options'] = {
     responsive: true,
     plugins: {
-      legend: { position: 'bottom' }
-    }
+      legend: { position: 'bottom' },
+    },
   };
   public pieChartData: ChartData<'pie'> = {
     labels: [],
@@ -28,12 +28,12 @@ export default class PieChart implements OnInit {
   };
 
   ngOnInit(): void {
-    const targetData = monthlyAssets.find((item) => item.yearMonth === '2025-09');
+    const targetData = monthlyAssets.find((item) => item.yearMonth === '2025-09')!;
     this.pieChartData = {
-      labels: targetData!.assetsByCategory.map((asset) => asset.category),
+      labels: targetData?.assetsByCategory.map((asset) => asset.category),
       datasets: [
         {
-          data: targetData!.assetsByCategory.map((asset) => asset.amount),
+          data: targetData?.assetsByCategory.map((asset) => asset.amount),
         },
       ],
     };
