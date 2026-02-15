@@ -25,10 +25,5 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noPropertyAccessFromIndexSignature": false
-  },
-  "references": [
-    { "path": "apps/api" },
-    { "path": "apps/backend" },
-    { "path": "packages/frontend" }
-  ]
+  }
 }

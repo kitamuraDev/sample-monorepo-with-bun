@@ -5,19 +5,14 @@
     "moduleResolution": "Bundler",
     "strict": true,
     "skipLibCheck": true,
-    "lib": [
-      "ESNext"
-    ],
+    "lib": ["ESNext"],
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx",
-    "types": [
-        "./worker-configuration.d.ts"
-    ],
+    "types": ["./worker-configuration.d.ts"],
+
+    // apiパッケージ直下のtsファイルを@api/*でインポートできるようにするパスエイリアス
     "paths": {
-      "@api-schema": ["../api/schema.d.ts"]
+      "@api/*": ["../api/*.ts"]
     }
-  },
-  "references": [
-    { "path": "../api" }
-  ]
+  }
 }

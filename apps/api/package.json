@@ -2,7 +2,7 @@
   "name": "api",
   "type": "module",
   "scripts": {
-    "generate:types": "openapi-typescript ./schema.yaml -o ./schema.d.ts"
+    "generate:types": "openapi-typescript ./schema.yaml -o ./schema.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",

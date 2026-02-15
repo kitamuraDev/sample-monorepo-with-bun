@@ -1,4 +1,4 @@
-import type { paths } from '@api-schema';
+import type { paths } from '@api/schema';
 import { Hono } from 'hono';
 
 type SuccessResponse = paths['/users/{id}']['get']['responses'][200]['content']['application/json'];
